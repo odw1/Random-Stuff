@@ -13,7 +13,15 @@ var TestApp = {
   },
 
   updateWorkInfo: function(data) {
-    alert('hello');
+    $('#workDescription').html(data.Description);
+    $('#workReference').html(data.WorkReference);
+
+    $('#workSteps')
+      .append('<table><tr><td>Hello</td></tr></table>')
+      .append('<td>Two</td>');
+
+  alert($('#workSteps').html());
   }
   
 };
+

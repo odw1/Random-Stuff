@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+<script src='lib/jquery-1.6.1.min.js' type="text/javascript" language="javascript"></script>
+<script src='testApp.js' type="text/javascript" language="javascript"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var data = 
+    {"Description":"work desc","WorkReference":"abc","Steps":[{"Id":"1","Name":"Name1"},{"Id":"2","Name":"Name2"}]};
+    TestApp.updateWorkInfo(data);
+  });
+</script>
+
+</head> 
+ 
+<body>
+
+<div id="workDescription"></div>
+<div id="workReference"></div>
+
+<div id="workSteps"></div>
+
+</body>
+
+</html>
