@@ -42,8 +42,8 @@ describe('test app updates the work info tests', function() {
     expect($('#workDescription')).toHaveText('work desc');
   });
 
-    it('it should set the work description and work reference correctly', function() {
-    // Tests that jQuery populates the div correctly
+  it('it should correctly render the work details', function() {
+    // Tests that jQuery populates the work details correctly
     var json = buildJsonResult();
     
     loadFixtures('testAppSpec.html');
@@ -51,12 +51,13 @@ describe('test app updates the work info tests', function() {
     TestApp.updateWorkInfo(json);
     expect($('#workDescription')).toHaveText('work desc');
     expect($('#workReference')).toHaveText('abc');
+    expect($('#workSteps').html()).toEqual('<table><tbody><tr><th>Id</th><th>Name</th></tr><tr><td>1</td><td>Name1</td></tr></tbody></table>');
   });
 });
 
 function buildJsonResult() {
   var data = 
-    {"Description":"work desc","WorkReference":"abc","Steps":[{"Id":"1","Name":"Name1"},{"Id":"2","Name":"Name2"}]};
+    {"Description":"work desc","WorkReference":"abc","Steps":[{"Id":"1","Name":"Name1"}]};
 
   return data;
 }

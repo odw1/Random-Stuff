@@ -1,3 +1,11 @@
+String.prototype.format = function() {
+  var formatted = this;
+  for (arg in arguments) {
+    formatted = formatted.replace('{' + arg + '}', arguments[arg]);
+  }
+  return formatted;
+};
+
 var TestApp = {
 
   add: function(a, b) {
@@ -17,11 +25,18 @@ var TestApp = {
     $('#workReference').html(data.WorkReference);
 
     $('#workSteps')
-      .append('<table><tr><td>Hello</td></tr></table>')
-      .append('<td>Two</td>');
+      .append('<table></table>')
 
-  alert($('#workSteps').html());
+    var table = $('#workSteps').children().last();
+
+    table.append('<tr><th>Id</th><th>Name</th></tr>');
+    
+    var stepRow = '<tr><td>{0}</td><td>{1}</td></tr>';
+
+    for (var step in data.Steps) {
+      var currentStep = data.Steps[step];
+      table.append(stepRow.format(currentStep.Id, currentStep.Name));
+    }
   }
   
 };
-
